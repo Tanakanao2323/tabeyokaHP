@@ -5,13 +5,12 @@
   <section
     #hero
     class="hero"
-    [style.--hero-reveal]="revealProgress"
     aria-label="たべよかの料理教室"
   >
     <div class="hero-stage">
       <img
         class="hero-image"
-        src="/images/hero.jpg"
+        src="/images/hero-wide-v2.png"
         alt="発酵食と干し野菜を使った料理"
       >
       <div class="hero-veil" aria-hidden="true"></div>
@@ -71,6 +70,19 @@
 
   <!-- Teacher -->
 
+  <section class="media-teaser" aria-labelledby="media-teaser-title">
+    <div>
+      <p class="section-label">MEDIA</p>
+      <h2 id="media-teaser-title">多数メディアにも出演！</h2>
+    </div>
+    <ul>
+      <li><span>RADIO</span>「お結びラジオ」出演</li>
+      <li><span>TV</span>NHK「ひるナマ！北海道」出演</li>
+      <li><span>PRESS</span>北海道新聞・poroco掲載</li>
+    </ul>
+    <a routerLink="/teacher" fragment="media">メディア実績を見る <span aria-hidden="true">→</span></a>
+  </section>
+
   <section class="teacher">
 
     <img
@@ -82,7 +94,7 @@
     <div>
 
       <p class="section-label">
-        INSTRUCTOR
+        講師
       </p>
 
       <h2>
@@ -94,84 +106,99 @@
       </p>
 
       <p class="teacher-message">
-        家族で囲む食事のような
-        アットホームな雰囲気の中で、
-        発酵食と干し野菜の魅力を
-        楽しくお伝えしています。
+        好奇心旺盛で、楽しそうなことはすぐ試したくなるタイプ。
+        家族で囲むごはんのようなアットホームな雰囲気を大切に、
+        一人ひとりの「やってみたい」に寄り添う講座を開いています。
       </p>
 
-      <div class="career">
-
-        <div class="career-item">
-
-          <span class="year">
-            2011
-          </span>
-
-          <span>
-            干し野菜教室アシスタント
-          </span>
-
-        </div>
-
-        <div class="career-item">
-
-          <span class="year">
-            2012
-          </span>
-
-          <span>
-            野菜ソムリエ取得
-          </span>
-
-        </div>
-
-        <div class="career-item">
-
-          <span class="year">
-            2018
-          </span>
-
-          <span>
-            発酵ライフアドバイザー／プロフェッショナル取得
-          </span>
-
-        </div>
-
-        <div class="career-item">
-
-          <span class="year">
-            2018
-          </span>
-
-          <span>
-            発酵食と干し野菜「たべよか」始動
-          </span>
-
-        </div>
-
-        <div class="career-item">
-
-          <span class="year">
-            2020
-          </span>
-
-          <span>
-            発酵食スペシャリスト取得
-          </span>
-
-        </div>
-
-      </div>
-
-      <button>
-
-        詳しく見る
-
-      </button>
+      <a class="teacher-link" routerLink="/teacher">
+        詳しく見る <span aria-hidden="true">→</span>
+      </a>
+      <a
+        class="teacher-youtube"
+        href="https://www.youtube.com/channel/UCugjeQDWQ-jNU6Oax_G7knQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        YouTube たべよかチャンネル <span aria-hidden="true">▶</span>
+      </a>
 
     </div>
 
+  </section>
+
+  <!-- Books -->
+
+  <section class="book-preview" aria-labelledby="book-preview-title">
+    <div class="book-preview-copy">
+      <p class="section-label">出版</p>
+      <h2 id="book-preview-title">干し野菜の本、<br>できました。</h2>
+      <p>
+        見て楽しむ一冊と、作って食べる一冊。<br>
+        干し野菜の魅力を、それぞれの形でまとめました。
+      </p>
+      <a class="book-preview-link" routerLink="/book">
+        2冊の本を見る <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <a class="book-covers" routerLink="/book" aria-label="干し野菜の本を詳しく見る">
+      <figure>
+        <img src="/images/book1.jpg" alt="HOSHIYASAI 表紙">
+      </figure>
+      <figure>
+        <img src="/images/book2.jpg" alt="干し野菜を作って食べる暮らしはちょっと楽しい 表紙">
+      </figure>
+    </a>
+  </section>
+
+  <!-- Courses -->
+
+  <section class="course-preview" aria-labelledby="course-preview-title">
+    <div class="course-heading">
+      <p class="section-label">COURSES</p>
+      <h2 id="course-preview-title">現在募集中の講座</h2>
+      <p>オンラインで受講できる、今申し込める2つの講座です。</p>
+    </div>
+
+    <div class="course-grid">
+      <a class="course-card" routerLink="/courses" fragment="dried-vegetables">
+        <div class="course-photo">
+          <img src="/images/storage.jpg" alt="干し野菜講座の干し野菜">
+        </div>
+        <div class="course-body">
+          <p class="course-number">01・ONLINE</p>
+          <h3>ヒミツのワザあり<br>干し野菜講座</h3>
+          <span class="course-link">講座を見る <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+
+      <a class="course-card" routerLink="/courses" fragment="disaster-food">
+        <div class="course-photo">
+          <img src="/images/kanbutu.jpg" alt="防災乾物食講座の料理" (error)="$any($event.target).src='/images/origin.jpg'">
+        </div>
+        <div class="course-body">
+          <p class="course-number">02・ONLINE</p>
+          <h3>防災乾物食講座</h3>
+          <span class="course-link">講座を見る <span aria-hidden="true">→</span></span>
+        </div>
+      </a>
+    </div>
+    <a class="past-course-link" routerLink="/courses" fragment="past-courses">その他の講座・これまでの講座はこちら <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="instagram-preview" aria-labelledby="instagram-title">
+    <div class="instagram-heading">
+      <p class="section-label">INSTAGRAM</p>
+      <h2 id="instagram-title">mizue's Instagram</h2>
+      <a href="https://www.instagram.com/mizue.tanaka.9/" target="_blank" rel="noopener noreferrer">@mizue.tanaka.9 ↗</a>
+    </div>
+    <div class="instagram-grid">
+      <a class="instagram-post" href="https://www.instagram.com/mizue.tanaka.9/reel/DYekgUDJYEz/" target="_blank" rel="noopener noreferrer"><img src="/images/instagram1.jpg" alt="Instagram投稿：2冊目の干し野菜レシピ本"><span>Instagram</span></a>
+      <a class="instagram-post" href="https://www.instagram.com/mizue.tanaka.9/p/DBVIpNrzqEo/" target="_blank" rel="noopener noreferrer"><img src="/images/instagram2.jpg" alt="Instagram投稿：HOSHIYASAI出版"><span>Instagram</span></a>
+      <a class="instagram-post" href="https://www.instagram.com/mizue.tanaka.9/reel/DZo0xO6pGYh/" target="_blank" rel="noopener noreferrer"><img src="/images/instagram3.jpg" alt="Instagram投稿：ちょい干しにんじん"><span>Instagram</span></a>
+      <a class="instagram-post" href="https://www.instagram.com/mizue.tanaka.9/reel/DYzc2eFpHBt/" target="_blank" rel="noopener noreferrer"><img src="/images/instagram4.jpg" alt="Instagram投稿：干し玉ねぎ"><span>Instagram</span></a>
+    </div>
   </section>
 
 </main>
