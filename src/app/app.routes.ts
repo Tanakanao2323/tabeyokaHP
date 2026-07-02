@@ -5,6 +5,7 @@ import { Teacher } from './pages/teacher/teacher';
 import { Voices } from './pages/voices/voices';
 import { News } from './pages/news/news';
 import { Contact } from './pages/contact/contact';
+import { Book } from './pages/book/book';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   { path: 'voices', component: Voices },
   { path: 'news', component: News },
   { path: 'contact', component: Contact },
+  { path: 'book', component: Book },
 ];

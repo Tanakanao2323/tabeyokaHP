@@ -1,37 +1,149 @@
 <section class="courses-page">
   <p class="section-label">COURSES</p>
-  <h1>開催中の講座</h1>
+  <h1>講座の特徴</h1>
 
-  <article class="course-detail">
+  <nav class="page-section-nav" aria-label="講座ページ内メニュー">
+    <a routerLink="/courses" fragment="features"><span>01</span>たべよかの特徴</a>
+    <a routerLink="/courses" fragment="course-lineup"><span>02</span>各講座の特徴</a>
+    <a routerLink="/courses" fragment="voices"><span>03</span>生徒様の声</a>
+  </nav>
+
+  <section id="features" class="features" aria-labelledby="features-title">
+    <div class="features-intro">
+      <div class="features-heading">
+        <p class="section-label">FEATURES</p>
+        <h2 id="features-title">たべよか 3つの特徴</h2>
+        <p>作り方だけではなく、毎日の料理で自分らしく使えるところまで。</p>
+      </div>
+      <img src="/images/tokucho.jpg" alt="切って干した野菜をざるに並べている様子">
+    </div>
+
+    <div class="feature-grid">
+      <article>
+        <span class="feature-number">01</span>
+        <h3>野菜の切り方、<br>干し方、使い方を知る</h3>
+        <p>
+          干し野菜の作り方を知るだけでなく、調理のコツを理解することで、生の野菜とは違う味や食感を楽しめる料理が作れるようになります。
+        </p>
+      </article>
+
+      <article>
+        <span class="feature-number">02</span>
+        <h3>発酵調味料の作り方、<br>使い方を知る</h3>
+        <p>
+          塩麹、醤油麹、麹甘酒等の発酵調味料の作り方を知り、普段使いの調味料に置き換え、自然な甘みや旨みを楽しめる料理が作れるようになります。
+        </p>
+      </article>
+
+      <article>
+        <span class="feature-number">03</span>
+        <h3>再現性の高い<br>オリジナルレシピを知る</h3>
+        <p>
+          干し野菜や発酵調味料をご自宅で、ご自身だけで使えるようになるために、誰でも作れる再現性の高いオリジナルレシピをお伝えします。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <div id="course-lineup" class="course-list-heading anchor-target">
+    <p class="section-label">COURSE LINEUP</p>
+    <h2>現在募集中の2講座</h2>
+    <p>現在いつでもお申し込みいただけるオンライン講座です。</p>
+  </div>
+
+  <nav class="course-jump-grid" aria-label="講座一覧">
+    <a routerLink="/courses" fragment="dried-vegetables">
+      <img src="/images/storage.jpg" alt="">
+      <span>ヒミツのワザあり干し野菜講座</span>
+      <small>詳しく見る →</small>
+    </a>
+    <a routerLink="/courses" fragment="disaster-food">
+      <img src="/images/kanbutu.jpg" alt="" (error)="$any($event.target).src='/images/origin.jpg'">
+      <span>防災乾物食講座</span>
+      <small>詳しく見る →</small>
+    </a>
+  </nav>
+
+  <div class="detail-heading">
+    <p class="section-label">LESSONS</p>
+    <h2>講座について</h2>
+  </div>
+
+  <article id="dried-vegetables" class="course-detail">
     <img src="/images/storage.jpg" alt="干し野菜講座">
 
     <div>
       <p class="course-label">干し野菜講座</p>
-      <h2>秘密の技あり干し野菜講座</h2>
-      <p>初心者向けの干し野菜講座です。</p>
+      <section class="course-option">
+        <p class="course-level">初心者コース</p>
+        <h2>ヒミツのワザあり<br>干し野菜オンライン講座</h2>
+        <p>
+          干し野菜は初めてという方もしっかりフォローいたしますので、ご安心ください。
+          「干し野菜を学んでから野菜をムダにしなくなりました」というお声をたくさんいただいています。
+        </p>
+        <p class="course-notice">3ヶ月コースは、各月それぞれ受講日を選べるようになりました。</p>
+        <a class="course-apply" href="https://resast.jp/page/event_series/112197" target="_blank" rel="noopener noreferrer">
+          詳細・お申し込み <span aria-hidden="true">↗</span>
+        </a>
+      </section>
 
-      <h2>もう手放せない もっと知りたい干し野菜講座</h2>
-      <p>干し野菜をさらに深く学びたい方向けのステップアップ講座です。</p>
+      <section class="course-option request-only">
+        <p class="course-level">中級者向け</p>
+        <h2>もう手放せない！もっと知りたい！<br>干し野菜ステップアップ講座</h2>
+        <p>
+          「もっと色んな野菜を干してみたい」「干し野菜のレシピを増やしたい」というお声にお応えしてできた、干し野菜をもっと楽しみたい経験者向けの単発講座です。
+        </p>
+        <p class="course-note">※「ヒミツのワザあり干し野菜講座」を3ヶ月以上ご受講いただいた方のみお申し込みいただけます。</p>
+        <p class="request-badge">現在は常時募集していません。ご希望に応じて開催します。</p>
+        <a class="course-apply" routerLink="/contact">開催を相談する <span aria-hidden="true">→</span></a>
+      </section>
     </div>
   </article>
 
-  <article class="course-detail reverse">
-    <img src="/images/koji.jpg" alt="発酵食講座">
+  <section class="season-recipes" aria-labelledby="season-recipes-title">
+    <div class="season-recipes-heading">
+      <p class="course-level">講座で作る料理</p>
+      <h2 id="season-recipes-title">季節の野菜を、もっと楽しく。</h2>
+      <p>春夏秋冬、その時季においしい干し野菜を使って、毎日の食卓に取り入れやすい料理を作ります。</p>
+    </div>
+    <div class="recipe-grid">
+      <figure><img src="/images/cook1.jpg" alt="くるっと巻ける肉巻きピーマン"><figcaption><b>春</b><span>くるっと巻ける肉巻きピーマン</span></figcaption></figure>
+      <figure><img src="/images/cook2.jpg" alt="干し玉ねぎ入りポテトサラダ"><figcaption><b>春</b><span>干し玉ねぎ入りポテトサラダ</span></figcaption></figure>
+      <figure><img src="/images/cook3.jpg" alt="ちょい干しキュウリのポリポリ炒飯"><figcaption><b>夏</b><span>ちょい干しキュウリのポリポリ炒飯</span></figcaption></figure>
+      <figure><img src="/images/cook4.jpg" alt="干しオクラの豆腐和え"><figcaption><b>夏</b><span>干しオクラの豆腐和え</span></figcaption></figure>
+      <figure><img src="/images/cook5.jpg" alt="ちょい干しロールキャベツ"><figcaption><b>秋</b><span>ちょい干しロールキャベツ</span></figcaption></figure>
+      <figure><img src="/images/cook6.jpg" alt="干しもやしとほうれん草のピリ辛和え"><figcaption><b>秋</b><span>干しもやしとほうれん草のピリ辛和え</span></figcaption></figure>
+      <figure><img src="/images/cook7.jpg" alt="みリンゴきんとん"><figcaption><b>冬</b><span>みリンゴきんとん</span></figcaption></figure>
+      <figure><img src="/images/cook8.jpg" alt="旨みに溺れる干しキノコのミートソース"><figcaption><b>冬</b><span>旨みに溺れる干しキノコのミートソース</span></figcaption></figure>
+    </div>
+    <p class="recipe-note">※季節や食材の入荷状況により、メインの材料や料理内容が変わる場合があります。</p>
+  </section>
+
+  <article id="disaster-food" class="course-detail reverse">
+    <img src="/images/kanbutu.jpg" alt="防災乾物食講座" (error)="$any($event.target).src='/images/origin.jpg'">
 
     <div>
-      <p class="course-label">発酵食講座</p>
-      <h2>発酵食講座</h2>
-      <p>発酵食を毎日の食卓に取り入れるための講座です。</p>
+      <p class="course-label">現在募集中・オンライン</p>
+      <h2>防災乾物食講座</h2>
+      <p>もしもの時にも、いつもの食卓にも役立つ、乾物と保存食の知恵をお伝えします。</p>
+      <a class="course-apply" href="https://www.reservestock.jp/page/consecutive_events/26070" target="_blank" rel="noopener noreferrer">詳細・お申し込み <span aria-hidden="true">↗</span></a>
     </div>
   </article>
 
-  <article class="course-detail">
-    <img src="/images/origin.jpg" alt="オリジナル講座">
-
-    <div>
-      <p class="course-label">オリジナル講座</p>
-      <h2>オリジナル講座</h2>
-      <p>季節やテーマに合わせた特別講座です。</p>
+  <section id="past-courses" class="past-courses">
+    <div class="detail-heading">
+      <p class="section-label">ON REQUEST / ARCHIVE</p>
+      <h2>ご依頼・これまでの講座</h2>
+      <p>現在は常時募集していませんが、ご依頼やご希望に応じて開催しています。</p>
     </div>
-  </article>
+
+    <div class="past-course-grid">
+      <article><img src="/images/koji.jpg" alt="発酵食講座"><h3>発酵食講座</h3><p>発酵食を毎日の食卓に取り入れる講座です。</p></article>
+      <article><img src="/images/origin.jpg" alt="腸幸せごはんオンライン講座"><h3>腸幸せごはん</h3><p>発酵 × 干し野菜で、お腹も心も幸せになるごはんを学びます。</p></article>
+      <article><img src="/images/storage.jpg" alt="発酵パズルごはんオンライン講座"><h3>発酵パズルごはん</h3><p>からだにやさしい発酵調味料を「使うだけ」で楽しむ講座です。</p></article>
+    </div>
+    <a class="course-apply archive-contact" routerLink="/contact">講座の開催を相談する <span aria-hidden="true">→</span></a>
+  </section>
+
+  <app-voices></app-voices>
 </section>

@@ -1,1 +1,75 @@
-<p>contact works!</p>
+<main class="contact-page">
+  <header class="contact-hero">
+    <p class="section-label">CONTACT</p>
+    <h1>お問い合わせ</h1>
+    <p>講座のお申し込みやご依頼について、こちらからお気軽にご連絡ください。</p>
+  </header>
+
+  <section class="direct-application" aria-labelledby="application-title">
+    <p class="section-label">APPLICATION</p>
+    <h2 id="application-title">現在募集中の講座へ申し込む</h2>
+    <p>お申し込みは各講座の専用ページからお願いいたします。</p>
+    <div>
+      <a href="https://www.reservestock.jp/page/event_series/112197" target="_blank" rel="noopener noreferrer"><span>干し野菜講座</span><small>申込ページへ ↗</small></a>
+      <a href="https://www.reservestock.jp/page/consecutive_events/26070" target="_blank" rel="noopener noreferrer"><span>防災乾物食講座</span><small>申込ページへ ↗</small></a>
+    </div>
+  </section>
+
+  <div class="inquiry-heading">
+    <p class="section-label">INQUIRY</p>
+    <h2>ご依頼・その他のお問い合わせ</h2>
+  </div>
+
+  <form class="contact-form" (ngSubmit)="sendMail()">
+    <fieldset>
+      <legend><span>01</span> お名前</legend>
+      <div class="two-columns">
+        <label>名字<input name="lastName" [(ngModel)]="lastName" required autocomplete="family-name"></label>
+        <label>名前<input name="firstName" [(ngModel)]="firstName" required autocomplete="given-name"></label>
+      </div>
+      <div class="two-columns">
+        <label>名字（カタカナ）<input name="lastNameKana" [(ngModel)]="lastNameKana" required></label>
+        <label>名前（カタカナ）<input name="firstNameKana" [(ngModel)]="firstNameKana" required></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>02</span> ご連絡先</legend>
+      <div class="choice-row">
+        <label class="choice"><input type="radio" name="contactMethod" value="email" [(ngModel)]="contactMethod">メールアドレス</label>
+        <label class="choice"><input type="radio" name="contactMethod" value="phone" [(ngModel)]="contactMethod">電話番号</label>
+      </div>
+      <label>{{ contactMethod === 'email' ? 'メールアドレス' : '電話番号' }}
+        <input name="contactValue" [(ngModel)]="contactValue" [type]="contactMethod === 'email' ? 'email' : 'tel'" required>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>03</span> お問い合わせ内容</legend>
+      <div class="choice-row vertical-mobile">
+        <label class="choice"><input type="radio" name="inquiryType" value="course-request" [(ngModel)]="inquiryType">その他の講座開催のご依頼</label>
+        <label class="choice"><input type="radio" name="inquiryType" value="corporate" [(ngModel)]="inquiryType">企業様からのご依頼</label>
+        <label class="choice"><input type="radio" name="inquiryType" value="media" [(ngModel)]="inquiryType">取材・メディア出演のご依頼</label>
+        <label class="choice"><input type="radio" name="inquiryType" value="other" [(ngModel)]="inquiryType">その他</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>04</span> ご依頼・ご要望の詳細</legend>
+      <label>具体的な内容をご記入ください
+        <textarea name="requestDetails" [(ngModel)]="requestDetails" rows="7" required></textarea>
+      </label>
+      <label>ご紹介者（複数可）
+        <input name="referrers" [(ngModel)]="referrers">
+      </label>
+    </fieldset>
+
+    <label class="newsletter-check">
+      <input type="checkbox" name="newsletter" [(ngModel)]="newsletter">
+      <span><strong>読者登録する</strong><br>田中 瑞恵 - 発酵食と干し野菜★田中 瑞恵★公式メルマガ</span>
+    </label>
+
+    <button class="submit-button" type="submit">メールを作成する <span aria-hidden="true">→</span></button>
+    <p class="form-note">送信ボタンを押すと、tanamizu1835@gmail.com 宛てのメールが作成されます。</p>
+  </form>
+</main>

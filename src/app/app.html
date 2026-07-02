@@ -1,16 +1,32 @@
 <header class="site-header">
-  <div class="logo" routerLink="/">たべよか</div>
+  <div class="logo" routerLink="/" (click)="closeMenu()">
+    <span>たべよか</span>
+    <small>from Hokkaido</small>
+  </div>
 
-  <nav class="nav">
-    <a class="book-banner" routerLink="/book">
+  <button
+    class="menu-toggle"
+    type="button"
+    [class.is-open]="menuOpen"
+    [attr.aria-expanded]="menuOpen"
+    aria-controls="site-navigation"
+    aria-label="メニューを開閉する"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="site-navigation" class="nav" [class.is-open]="menuOpen">
+    <a class="book-banner" routerLink="/book" (click)="closeMenu()">
     <strong>📖 干し野菜のレシピ本</strong>
     <span>＼ 好評発売中 ／</span>
     </a>
-    <a routerLink="/news">イベントのお知らせ</a>
-    <a routerLink="/courses">開催中の講座</a>
-    <a routerLink="/voices">生徒様の声</a>
-    <a routerLink="/teacher">講師について</a>
-    <a routerLink="/contact">お問い合わせ</a>
+    <a routerLink="/news" (click)="closeMenu()">イベントのお知らせ</a>
+    <a routerLink="/courses" (click)="closeMenu()">講座の特徴</a>
+    <a routerLink="/teacher" (click)="closeMenu()">講師について</a>
+    <a routerLink="/contact" (click)="closeMenu()">お問い合わせ</a>
   </nav>
 </header>
 

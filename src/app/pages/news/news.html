@@ -1,37 +1,47 @@
-<div class="calendar-toolbar">
-  <button type="button" (click)="prevMonth()">‹</button>
-  <h3>{{ calendarTitle }}</h3>
-  <button type="button" (click)="nextMonth()">›</button>
-</div>
+<div class="calendar-wrap">
+  <div class="calendar-toolbar">
+    <button type="button" (click)="prevMonth()">‹</button>
+    <h3>{{ calendarTitle }}</h3>
+    <button type="button" (click)="nextMonth()">›</button>
+  </div>
 
-<div class="calendar">
-  <div class="calendar-week">月</div>
-  <div class="calendar-week">火</div>
-  <div class="calendar-week">水</div>
-  <div class="calendar-week">木</div>
-  <div class="calendar-week">金</div>
-  <div class="calendar-week">土</div>
-  <div class="calendar-week sunday">日</div>
+  <div class="calendar">
+    <div class="calendar-week">月</div>
+    <div class="calendar-week">火</div>
+    <div class="calendar-week">水</div>
+    <div class="calendar-week">木</div>
+    <div class="calendar-week">金</div>
+    <div class="calendar-week">土</div>
+    <div class="calendar-week sunday">日</div>
 
-  <div class="calendar-days">
-    <div
-      class="calendar-cell"
-      *ngFor="let day of calendarDays"
-      [class.empty]="!day.date"
-    >
-      <ng-container *ngIf="day.date">
-        <span class="date-number">{{ day.day }}</span>
+    <div class="calendar-days">
+      <div
+        class="calendar-cell"
+        *ngFor="let day of calendarDays"
+        [class.empty]="!day.date"
+        [class.has-events]="day.events.length"
+        [class.selected]="selectedDay?.date === day.date"
+        (click)="selectDay(day)"
+      >
+        <ng-container *ngIf="day.date">
+          <span class="date-number">{{ day.day }}</span>
 
-        <a
-          *ngFor="let event of day.events"
-          [href]="event.link"
-          class="calendar-event"
-          [ngClass]="event.type"
-        >
-          {{ event.title }}
-        </a>
-      </ng-container>
+          <a
+            *ngFor="let event of day.events"
+            [href]="event.link"
+            class="calendar-event"
+            [ngClass]="event.type"
+          >
+            {{ event.title }}
+          </a>
+        </ng-container>
+      </div>
     </div>
+  </div>
+
+  <div class="mobile-day-events" *ngIf="selectedDay as selected">
+    <strong>{{ calendarTitle }} {{ selected.day }}日の予定</strong>
+    <a *ngFor="let event of selected.events" [href]="event.link" [ngClass]="event.type">{{ event.title }}</a>
   </div>
 </div>
 <section class="marche-section" id="marche-info">
@@ -40,7 +50,7 @@
 
   <p class="marche-lead">
     たべよかでは、季節の食材を使った商品や、
-    毎日の食卓に取り入れやすい干し野菜・発酵食の商品を販売しています。
+    毎日の食卓に取り入れやすい干し野菜・ドライフルーツを販売しています。
   </p>
 
   <article class="marche-card">
@@ -56,19 +66,19 @@
   </article>
 
   <article class="marche-card reverse">
-    <img src="/images/news2.jpg" alt="干し野菜や発酵食の商品">
+    <img src="/images/news3.jpg" alt="干し野菜やドライフルーツの商品">
 
     <div class="marche-body">
-      <h3>干し野菜・発酵食の商品</h3>
+      <h3>干し野菜・ドライフルーツ</h3>
       <p>
-        干し野菜や発酵調味料など、
+        干し野菜やドライフルーツなど、
         たべよかならではの食の楽しさを感じられる商品を販売しています。
       </p>
     </div>
   </article>
 
   <article class="marche-card">
-    <img src="/images/news3.jpg" alt="過去のマルシェの様子">
+    <img src="/images/news2.jpg" alt="過去のマルシェの様子">
 
     <div class="marche-body">
       <h3>過去のマルシェの様子</h3>
