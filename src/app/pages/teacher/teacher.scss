@@ -1,0 +1,83 @@
+:host {
+  display: block;
+  background: #fffdf8;
+  color: #333;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.teacher-hero {
+  padding: 110px 8%;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 80px;
+  align-items: center;
+  background: #f8f6f3;
+}
+
+.teacher-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .08);
+}
+
+.section-label {
+  color: #b59355;
+  letter-spacing: .22em;
+  margin-bottom: 20px;
+}
+
+.teacher-intro h1 {
+  font-size: 52px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.kana {
+  color: #777;
+  letter-spacing: .12em;
+  margin-bottom: 34px;
+}
+
+.lead {
+  font-size: 22px;
+  line-height: 2;
+  margin-bottom: 34px;
+}
+
+.instagram {
+  display: inline-block;
+  color: #8b6f3f;
+  text-decoration: none;
+  border-bottom: 1px solid #8b6f3f;
+}
+
+.teacher-story {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.teacher-story h2 {
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 42px;
+  text-align: center;
+}
+
+.teacher-story p {
+  font-size: 17px;
+  line-height: 2.2;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 850px) {
+  .teacher-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-intro h1 {
+    font-size: 42px;
+  }
+}

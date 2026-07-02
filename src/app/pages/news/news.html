@@ -1,0 +1,81 @@
+<div class="calendar-toolbar">
+  <button type="button" (click)="prevMonth()">‹</button>
+  <h3>{{ calendarTitle }}</h3>
+  <button type="button" (click)="nextMonth()">›</button>
+</div>
+
+<div class="calendar">
+  <div class="calendar-week">月</div>
+  <div class="calendar-week">火</div>
+  <div class="calendar-week">水</div>
+  <div class="calendar-week">木</div>
+  <div class="calendar-week">金</div>
+  <div class="calendar-week">土</div>
+  <div class="calendar-week sunday">日</div>
+
+  <div class="calendar-days">
+    <div
+      class="calendar-cell"
+      *ngFor="let day of calendarDays"
+      [class.empty]="!day.date"
+    >
+      <ng-container *ngIf="day.date">
+        <span class="date-number">{{ day.day }}</span>
+
+        <a
+          *ngFor="let event of day.events"
+          [href]="event.link"
+          class="calendar-event"
+          [ngClass]="event.type"
+        >
+          {{ event.title }}
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<section class="marche-section" id="marche-info">
+  <p class="section-label">MARCHE</p>
+  <h2>マルシェ販売について</h2>
+
+  <p class="marche-lead">
+    たべよかでは、季節の食材を使った商品や、
+    毎日の食卓に取り入れやすい干し野菜・発酵食の商品を販売しています。
+  </p>
+
+  <article class="marche-card">
+    <img src="/images/news1.jpg" alt="マルシェで販売している商品">
+
+    <div class="marche-body">
+      <h3>季節の食材を使った販売</h3>
+      <p>
+        その時期ならではの野菜や食材を使い、
+        からだにやさしく、毎日の料理に取り入れやすい商品を並べています。
+      </p>
+    </div>
+  </article>
+
+  <article class="marche-card reverse">
+    <img src="/images/news2.jpg" alt="干し野菜や発酵食の商品">
+
+    <div class="marche-body">
+      <h3>干し野菜・発酵食の商品</h3>
+      <p>
+        干し野菜や発酵調味料など、
+        たべよかならではの食の楽しさを感じられる商品を販売しています。
+      </p>
+    </div>
+  </article>
+
+  <article class="marche-card">
+    <img src="/images/news3.jpg" alt="過去のマルシェの様子">
+
+    <div class="marche-body">
+      <h3>過去のマルシェの様子</h3>
+      <p>
+        お客様と直接お話ししながら、
+        食材の楽しみ方やおすすめの使い方もお伝えしています。
+      </p>
+    </div>
+  </article>
+</section>
