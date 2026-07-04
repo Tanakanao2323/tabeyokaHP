@@ -6,6 +6,7 @@ import { Voices } from './pages/voices/voices';
 import { News } from './pages/news/news';
 import { Contact } from './pages/contact/contact';
 import { Book } from './pages/book/book';
+import { CalendarAdmin } from './pages/calendar-admin/calendar-admin';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'news', component: News },
   { path: 'contact', component: Contact },
   { path: 'book', component: Book },
+  { path: 'calendar-admin', component: CalendarAdmin },
 ];

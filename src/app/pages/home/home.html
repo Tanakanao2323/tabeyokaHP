@@ -10,16 +10,17 @@
     <div class="hero-stage">
       <img
         class="hero-image"
-        src="/images/hero-wide-v2.png"
+        src="/images/main3.jpg"
         alt="発酵食と干し野菜を使った料理"
+        (error)="$any($event.target).src='/images/hero-wide-v2.png'"
       >
       <div class="hero-veil" aria-hidden="true"></div>
 
       <div class="hero-copy">
         <p>今よりラクに美味しく、心が幸せになる</p>
         <h1>
-          発酵食 <span aria-hidden="true">×</span> 干し野菜<br>
-          料理教室<br>
+          <span class="hero-combination"><span>発酵食</span><i aria-hidden="true">×</i><span>干し野菜</span></span>
+          <span class="hero-school">料理教室</span>
           <strong>たべよか</strong>
         </h1>
       </div>
@@ -58,11 +59,11 @@
 
     <div class="photo-grid">
 
-      <img src="/images/onion.jpg">
+      <img src="/images/about1.jpg" alt="たべよかの食材">
 
-      <img src="/images/koji.jpg">
+      <img src="/images/main2.jpg" alt="発酵食と干し野菜の料理">
 
-      <img src="/images/storage.jpg">
+      <img src="/images/about3.jpg" alt="たべよかの料理風景">
 
     </div>
 
@@ -163,8 +164,9 @@
 
     <div class="course-grid">
       <a class="course-card" routerLink="/courses" fragment="dried-vegetables">
-        <div class="course-photo">
-          <img src="/images/storage.jpg" alt="干し野菜講座の干し野菜">
+        <div class="course-photo course-photo-with-teacher">
+          <img src="/images/origin.jpg" alt="ヒミツのワザあり干し野菜講座">
+          
         </div>
         <div class="course-body">
           <p class="course-number">01・ONLINE</p>
@@ -175,7 +177,7 @@
 
       <a class="course-card" routerLink="/courses" fragment="disaster-food">
         <div class="course-photo">
-          <img src="/images/kanbutu.jpg" alt="防災乾物食講座の料理" (error)="$any($event.target).src='/images/origin.jpg'">
+          <img src="/images/kanbutu2.jpg" alt="防災乾物食講座の料理" (error)="$any($event.target).src='/images/kanbutu.jpg'">
         </div>
         <div class="course-body">
           <p class="course-number">02・ONLINE</p>
@@ -200,5 +202,24 @@
       <a class="instagram-post" href="https://www.instagram.com/mizue.tanaka.9/reel/DYzc2eFpHBt/" target="_blank" rel="noopener noreferrer"><img src="/images/instagram4.jpg" alt="Instagram投稿：干し玉ねぎ"><span>Instagram</span></a>
     </div>
   </section>
+
+  <footer class="home-footer-nav" aria-label="ページ案内">
+    <div class="home-footer-brand"><span>たべよか</span><small>from Hokkaido</small></div>
+    <nav>
+      <a routerLink="/book">干し野菜のレシピ本</a>
+      <a routerLink="/news">イベントのお知らせ</a>
+      <a routerLink="/courses">講座の特徴</a>
+      <a routerLink="/teacher">講師について</a>
+      <a routerLink="/contact">お問い合わせ</a>
+    </nav>
+    <div class="home-socials">
+      <a class="youtube-icon" href="https://www.youtube.com/channel/UCugjeQDWQ-jNU6Oax_G7knQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/><path class="play" d="m9.6 15.6 6.3-3.6-6.3-3.6Z"/></svg>
+      </a>
+      <a class="instagram-icon" href="https://www.instagram.com/mizue.tanaka.9/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle class="dot" cx="17.5" cy="6.7" r="1.1"/></svg>
+      </a>
+    </div>
+  </footer>
 
 </main>
