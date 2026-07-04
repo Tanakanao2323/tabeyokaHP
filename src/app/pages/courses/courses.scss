@@ -233,17 +233,6 @@
   object-fit: cover;
 }
 
-.detail-photo-with-teacher { position: relative; }
-.course-detail .detail-photo-with-teacher .teacher-badge {
-  position: absolute;
-  right: -14px;
-  bottom: 18px;
-  width: 24%;
-  border: 5px solid rgba(255,255,255,.94);
-  border-radius: 50%;
-  box-shadow: 0 10px 28px rgba(55,42,25,.24);
-}
-
 .course-label {
   color: #b59355;
   letter-spacing: .18em;
