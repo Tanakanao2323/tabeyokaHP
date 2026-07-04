@@ -12,7 +12,7 @@
 .hero {
   --hero-reveal: 0;
   position: relative;
-  height: 190svh;
+  height: 215svh;
 }
 
 .hero-stage {
@@ -52,7 +52,7 @@
   place-content: center;
   width: min(92%, 920px);
   margin-inline: auto;
-  padding: 100px 24px 40px;
+  padding: clamp(140px, 19vh, 220px) 24px 40px;
   text-align: center;
   opacity: clamp(0, calc((var(--hero-reveal) - 0.2) * 2.2), 1);
   transform: translateY(calc((1 - var(--hero-reveal)) * 48px));
@@ -68,12 +68,17 @@
 
 .hero-copy h1 {
   margin: 0;
-  font-size: clamp(36px, 5.2vw, 70px);
+  font-size: clamp(32px, 4.5vw, 60px);
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: 0.08em;
   text-shadow: 0 1px 18px rgba(255, 255, 255, 0.35);
 }
+
+.hero-combination,
+.hero-school,
+.hero-copy strong { display: block; }
+.hero-combination i { margin: 0 .25em; font-style: normal; font-weight: 300; }
 
 .hero-copy strong {
   font-weight: 500;
@@ -118,7 +123,7 @@
   object-fit: cover;
 }
 
-.photo-grid img:last-child { grid-column: span 2; }
+.photo-grid img:last-child { grid-column: span 2; height:auto; max-height:440px; object-fit:contain; background:#f1e9dc; }
 
 .teacher {
   display: grid;
@@ -233,6 +238,11 @@
 }
 
 .book-covers figure {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(300px, 38vw, 510px);
   margin: 0;
   transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -244,8 +254,10 @@
 
 .book-covers img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
   box-shadow: 0 18px 36px rgba(63, 49, 27, 0.2);
 }
 
@@ -299,9 +311,26 @@
 }
 
 .course-photo {
+  position: relative;
   aspect-ratio: 1;
   overflow: hidden;
 }
+
+.course-photo .course-teacher-badge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  width: 24%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 4px solid rgba(255,255,255,.92);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(42,33,20,.22);
+}
+
+.course-card:hover .course-teacher-badge { transform: none; }
 
 .course-photo img {
   width: 100%;
@@ -369,11 +398,30 @@
 .instagram-post img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; transition: opacity .2s; }
 .instagram-post span { position: absolute; inset: 0; display: grid; place-items: center; font-family: Arial,sans-serif; font-size: 11px; letter-spacing: .15em; }
 
+.home-footer-nav { display:grid; grid-template-columns:auto 1fr auto; gap:clamp(26px,5vw,70px); align-items:center; padding:58px 6%; border-top:1px solid #e7ddcc; background:#f5eee2; }
+.home-footer-brand { white-space:nowrap; font-size:25px; font-weight:600; letter-spacing:.14em; }
+.home-footer-brand small { display:block; margin-top:5px; color:#9b7b43; font-family:Arial,sans-serif; font-size:8px; font-weight:400; letter-spacing:.2em; text-align:center; }
+.home-footer-nav nav { display:flex; flex-wrap:wrap; justify-content:center; gap:12px 24px; }
+.home-footer-nav nav a { color:#514a42; font-size:13px; text-decoration:none; white-space:nowrap; }
+.home-socials { display:flex; gap:10px; }
+.home-socials a { display:grid; place-items:center; width:42px; height:42px; border-radius:12px; text-decoration:none; transition:transform .2s ease; }
+.home-socials a:hover { transform:translateY(-2px); }
+.home-socials svg { width:24px; height:24px; }
+.youtube-icon { background:#ff0033; }
+.youtube-icon svg path:first-child { fill:#fff; }
+.youtube-icon svg .play { fill:#ff0033; }
+.instagram-icon { background:linear-gradient(135deg,#833ab4,#fd1d1d 55%,#fcb045); }
+.instagram-icon svg rect,.instagram-icon svg circle { fill:none; stroke:#fff; stroke-width:1.8; }
+.instagram-icon svg .dot { fill:#fff; stroke:none; }
+
 @media (max-width: 900px) {
-  .hero { height: 175svh; }
+  .hero { height: 215svh; }
   .hero-image { object-position: 58% center; }
-  .hero-copy { padding-top: 130px; }
-  .hero-copy h1 { line-height: 1.65; }
+  .hero-copy { padding-top: 17vh; }
+  .hero-copy h1 { font-size:clamp(28px,8vw,42px); line-height: 1.48; }
+  .hero-combination { display:grid; justify-items:center; }
+  .hero-combination i { margin:0; line-height:1.2; }
+  .hero-school { margin-top:.42em; }
   .intro { grid-template-columns: 1fr; gap: 48px; padding: 88px 7%; }
   .teacher { grid-template-columns: minmax(92px, 120px) minmax(0, 1fr); gap: 22px; padding: 88px 7%; text-align: left; }
   .teacher-photo { width: 100%; margin: 0; }
@@ -385,11 +433,14 @@
   .book-preview { grid-template-columns: 1fr; gap: 52px; padding: 88px 7%; }
   .book-preview-copy { text-align: center; }
   .book-covers { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 16px; }
+  .book-covers figure { height:clamp(210px,58vw,360px); }
   .course-preview { padding: 88px 7%; }
   .course-grid { grid-template-columns: 1fr; max-width: 560px; }
   .course-photo { height: auto; }
   .instagram-preview { padding: 84px 7%; }
   .instagram-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+  .home-footer-nav { grid-template-columns:1fr; justify-items:center; gap:28px; padding:48px 7%; text-align:center; }
+  .home-footer-nav nav { max-width:520px; }
 }
 
 @media (max-width: 480px) {

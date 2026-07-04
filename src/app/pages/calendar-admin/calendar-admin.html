@@ -1,0 +1,36 @@
+<main class="admin-page">
+  <div class="loading-overlay" *ngIf="busy" role="status" aria-live="polite">
+    <span class="spinner" aria-hidden="true"></span>
+    <strong>{{ editingId ? '更新しています…' : '処理しています…' }}</strong>
+  </div>
+  <header><p>CALENDAR ADMIN</p><h1>カレンダー管理</h1><a href="/news">公開カレンダーを見る →</a></header>
+
+  <section class="setup-note" *ngIf="!calendar.configured">
+    <h2>Firebaseの接続情報が必要です</h2>
+    <p><code>src/app/firebase.config.ts</code> にFirebaseウェブアプリの設定を入れると、管理画面が有効になります。</p>
+  </section>
+
+  <form class="login-card" *ngIf="calendar.configured && !user" (ngSubmit)="login()">
+    <h2>管理者ログイン</h2>
+    <label>メールアドレス<input type="email" name="email" [(ngModel)]="email" required></label>
+    <label>パスワード<input type="password" name="password" [(ngModel)]="password" required></label>
+    <button [disabled]="busy">ログイン</button>
+  </form>
+
+  <ng-container *ngIf="user">
+    <div class="admin-bar"><span>{{ user.email }}<small>ログインから30分で自動ログアウトします</small></span><button type="button" (click)="calendar.logout()">ログアウト</button></div>
+    <form class="event-form" (ngSubmit)="saveEvent()">
+      <h2>{{ editingId ? '予定を編集' : '予定を追加' }}</h2>
+      <label>日付<input type="date" name="date" [(ngModel)]="form.date" required></label>
+      <label>開始時間<input type="time" name="startTime" [(ngModel)]="form.startTime"></label>
+      <label>終了時間<input type="time" name="endTime" [(ngModel)]="form.endTime"></label>
+      <label>タイトル<input name="title" [(ngModel)]="form.title" required></label>
+      <label>種類<select name="type" [(ngModel)]="form.type"><option value="lesson">講座</option><option value="marche">マルシェ</option><option value="media">メディア</option></select></label>
+      <label>リンク<input type="url" name="link" [(ngModel)]="form.link" placeholder="https://..."></label>
+      <div class="form-actions"><button [disabled]="busy">{{ editingId ? '更新する' : '予定を追加' }}</button><button *ngIf="editingId" type="button" (click)="cancelEdit()">キャンセル</button></div>
+    </form>
+
+    <section class="event-list"><h2>登録済みの予定</h2><article *ngFor="let event of events"><time><span class="event-date">{{ event.date }}</span><span class="event-time">{{ event.startTime || '時間未設定' }}<ng-container *ngIf="event.endTime">〜{{ event.endTime }}</ng-container></span></time><span class="event-title">{{ event.title }}</span><div class="event-actions"><button type="button" (click)="edit(event)" [disabled]="busy">編集</button><button type="button" (click)="remove(event)" [disabled]="busy">削除</button></div></article></section>
+  </ng-container>
+  <p class="message" *ngIf="message">{{ message }}</p>
+</main>

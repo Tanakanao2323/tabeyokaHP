@@ -15,7 +15,10 @@
         <h2 id="features-title">たべよか 3つの特徴</h2>
         <p>作り方だけではなく、毎日の料理で自分らしく使えるところまで。</p>
       </div>
-      <img src="/images/tokucho.jpg" alt="切って干した野菜をざるに並べている様子">
+      <div class="features-photos">
+        <img src="/images/teach1.jpg" alt="たべよかの講座の様子" (error)="$any($event.target).src='/images/tokucho.jpg'">
+        <img src="/images/teach2.jpg" alt="たべよかで料理を学ぶ様子" (error)="$any($event.target).src='/images/tokucho.jpg'">
+      </div>
     </div>
 
     <div class="feature-grid">
@@ -53,12 +56,15 @@
 
   <nav class="course-jump-grid" aria-label="講座一覧">
     <a routerLink="/courses" fragment="dried-vegetables">
-      <img src="/images/storage.jpg" alt="">
+      <span class="jump-photo-with-teacher">
+        <img src="/images/origin.jpg" alt="">
+
+      </span>
       <span>ヒミツのワザあり干し野菜講座</span>
       <small>詳しく見る →</small>
     </a>
     <a routerLink="/courses" fragment="disaster-food">
-      <img src="/images/kanbutu.jpg" alt="" (error)="$any($event.target).src='/images/origin.jpg'">
+      <img src="/images/kanbutu2.jpg" alt="" (error)="$any($event.target).src='/images/kanbutu.jpg'">
       <span>防災乾物食講座</span>
       <small>詳しく見る →</small>
     </a>
@@ -70,7 +76,10 @@
   </div>
 
   <article id="dried-vegetables" class="course-detail">
-    <img src="/images/storage.jpg" alt="干し野菜講座">
+    <div class="detail-photo-with-teacher">
+      <img src="/images/origin.jpg" alt="ヒミツのワザあり干し野菜講座">
+      <img class="teacher-badge" src="/images/artistpic2.jpg" alt="講師 田中瑞恵">
+    </div>
 
     <div>
       <p class="course-label">干し野菜講座</p>
@@ -103,29 +112,31 @@
   <section class="season-recipes" aria-labelledby="season-recipes-title">
     <div class="season-recipes-heading">
       <p class="course-level">講座で作る料理</p>
-      <h2 id="season-recipes-title">季節の野菜を、もっと楽しく。</h2>
-      <p>春夏秋冬、その時季においしい干し野菜を使って、毎日の食卓に取り入れやすい料理を作ります。</p>
+      <h2 id="season-recipes-title">料理の例</h2>
+      <p>干し野菜を毎日の食卓に取り入れやすい、楽しくておいしい料理を作ります。</p>
     </div>
     <div class="recipe-grid">
-      <figure><img src="/images/cook1.jpg" alt="くるっと巻ける肉巻きピーマン"><figcaption><b>春</b><span>くるっと巻ける肉巻きピーマン</span></figcaption></figure>
-      <figure><img src="/images/cook2.jpg" alt="干し玉ねぎ入りポテトサラダ"><figcaption><b>春</b><span>干し玉ねぎ入りポテトサラダ</span></figcaption></figure>
-      <figure><img src="/images/cook3.jpg" alt="ちょい干しキュウリのポリポリ炒飯"><figcaption><b>夏</b><span>ちょい干しキュウリのポリポリ炒飯</span></figcaption></figure>
-      <figure><img src="/images/cook4.jpg" alt="干しオクラの豆腐和え"><figcaption><b>夏</b><span>干しオクラの豆腐和え</span></figcaption></figure>
-      <figure><img src="/images/cook5.jpg" alt="ちょい干しロールキャベツ"><figcaption><b>秋</b><span>ちょい干しロールキャベツ</span></figcaption></figure>
-      <figure><img src="/images/cook6.jpg" alt="干しもやしとほうれん草のピリ辛和え"><figcaption><b>秋</b><span>干しもやしとほうれん草のピリ辛和え</span></figcaption></figure>
-      <figure><img src="/images/cook7.jpg" alt="みリンゴきんとん"><figcaption><b>冬</b><span>みリンゴきんとん</span></figcaption></figure>
-      <figure><img src="/images/cook8.jpg" alt="旨みに溺れる干しキノコのミートソース"><figcaption><b>冬</b><span>旨みに溺れる干しキノコのミートソース</span></figcaption></figure>
+      <figure><img src="/images/cook9.jpg" alt="干し野菜を使った料理例 1"><figcaption>干し野菜を使った料理例</figcaption></figure>
+      <figure><img src="/images/cook10.jpg" alt="干し野菜を使った料理例 2"><figcaption>干し野菜を使った料理例</figcaption></figure>
+      <figure><img src="/images/cook11.jpg" alt="干し野菜を使った料理例 3"><figcaption>干し野菜を使った料理例</figcaption></figure>
+      <figure><img src="/images/cook12.jpg" alt="干し野菜を使った料理例 4"><figcaption>干し野菜を使った料理例</figcaption></figure>
     </div>
     <p class="recipe-note">※季節や食材の入荷状況により、メインの材料や料理内容が変わる場合があります。</p>
   </section>
 
   <article id="disaster-food" class="course-detail reverse">
-    <img src="/images/kanbutu.jpg" alt="防災乾物食講座" (error)="$any($event.target).src='/images/origin.jpg'">
+    <img src="/images/kanbutu3.jpg" alt="防災乾物食講座" (error)="$any($event.target).src='/images/kanbutu.jpg'">
 
     <div>
       <p class="course-label">現在募集中・オンライン</p>
       <h2>防災乾物食講座</h2>
-      <p>もしもの時にも、いつもの食卓にも役立つ、乾物と保存食の知恵をお伝えします。</p>
+      <p>もしもの時に慌てず、身近な道具と乾物で温かい食事を作る方法を、座学と実習で学びます。</p>
+      <ul class="disaster-program">
+        <li>防災食についての座学</li>
+        <li>カセットコンロとビニール袋を使って、ご飯とお味噌汁を作る</li>
+        <li>乾物を使って副菜を一品作る</li>
+      </ul>
+      <p class="course-duration">所要時間：約2時間</p>
       <a class="course-apply" href="https://www.reservestock.jp/page/consecutive_events/26070" target="_blank" rel="noopener noreferrer">詳細・お申し込み <span aria-hidden="true">↗</span></a>
     </div>
   </article>
@@ -139,7 +150,7 @@
 
     <div class="past-course-grid">
       <article><img src="/images/koji.jpg" alt="発酵食講座"><h3>発酵食講座</h3><p>発酵食を毎日の食卓に取り入れる講座です。</p></article>
-      <article><img src="/images/origin.jpg" alt="腸幸せごはんオンライン講座"><h3>腸幸せごはん</h3><p>発酵 × 干し野菜で、お腹も心も幸せになるごはんを学びます。</p></article>
+      <article><img src="/images/cho.jpg" alt="腸幸せごはんオンライン講座"><h3>腸幸せごはん</h3><p>発酵 × 干し野菜で、お腹も心も幸せになるごはんを学びます。</p></article>
       <article><img src="/images/storage.jpg" alt="発酵パズルごはんオンライン講座"><h3>発酵パズルごはん</h3><p>からだにやさしい発酵調味料を「使うだけ」で楽しむ講座です。</p></article>
     </div>
     <a class="course-apply archive-contact" routerLink="/contact">講座の開催を相談する <span aria-hidden="true">→</span></a>

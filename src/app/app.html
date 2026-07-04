@@ -1,7 +1,10 @@
 <header class="site-header">
   <div class="logo" routerLink="/" (click)="closeMenu()">
-    <span>たべよか</span>
-    <small>from Hokkaido</small>
+    <img class="logo-mark" src="/images/logo.jpg" alt="" (error)="$any($event.target).style.display='none'">
+    <span class="logo-copy">
+      <span>たべよか</span>
+      <small>from Hokkaido</small>
+    </span>
   </div>
 
   <button

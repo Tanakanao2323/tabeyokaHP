@@ -32,7 +32,7 @@
             class="calendar-event"
             [ngClass]="event.type"
           >
-            {{ event.title }}
+            {{ eventLabel(event) }}
           </a>
         </ng-container>
       </div>
@@ -41,7 +41,7 @@
 
   <div class="mobile-day-events" *ngIf="selectedDay as selected">
     <strong>{{ calendarTitle }} {{ selected.day }}日の予定</strong>
-    <a *ngFor="let event of selected.events" [href]="event.link" [ngClass]="event.type">{{ event.title }}</a>
+    <a *ngFor="let event of selected.events" [href]="event.link" [ngClass]="event.type">{{ eventLabel(event) }}</a>
   </div>
 </div>
 <section class="marche-section" id="marche-info">
@@ -49,18 +49,18 @@
   <h2>マルシェ販売について</h2>
 
   <p class="marche-lead">
-    たべよかでは、季節の食材を使った商品や、
-    毎日の食卓に取り入れやすい干し野菜・ドライフルーツを販売しています。
+    たべよかでは、毎日の食卓に取り入れやすい
+    干し野菜やドライフルーツなどを販売しています。
   </p>
 
   <article class="marche-card">
-    <img src="/images/news1.jpg" alt="マルシェで販売している商品">
+    <img src="/images/marche2.jpg" alt="マルシェで販売している商品" (error)="$any($event.target).src='/images/news1.jpg'">
 
     <div class="marche-body">
-      <h3>季節の食材を使った販売</h3>
+      <h3>暮らしに取り入れやすい商品</h3>
       <p>
-        その時期ならではの野菜や食材を使い、
-        からだにやさしく、毎日の料理に取り入れやすい商品を並べています。
+        干し野菜の知恵を活かした商品など、
+        毎日の料理やおやつとして気軽に楽しめるものを並べています。
       </p>
     </div>
   </article>
@@ -78,7 +78,7 @@
   </article>
 
   <article class="marche-card">
-    <img src="/images/news2.jpg" alt="過去のマルシェの様子">
+    <img src="/images/marche1.jpg" alt="過去のマルシェの様子" (error)="$any($event.target).src='/images/news2.jpg'">
 
     <div class="marche-body">
       <h3>過去のマルシェの様子</h3>

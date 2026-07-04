@@ -72,6 +72,17 @@
   box-shadow: 0 22px 45px rgba(63, 49, 27, 0.2);
 }
 
+.book-cover .book-detail-mini {
+  position: absolute;
+  right: -7%;
+  bottom: -5%;
+  z-index: 2;
+  width: 34%;
+  border: 5px solid #f8f3e9;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(63,49,27,.24);
+}
+
 .book-number {
   position: absolute;
   right: 18px;
@@ -158,5 +169,6 @@
     margin: 0 auto;
     padding: 3%;
   }
+  .book-cover .book-detail-mini { right: -2%; bottom: -6%; width: 30%; border-width: 3px; }
   .book-copy h2 br { display: none; }
 }
