@@ -38,9 +38,9 @@
       </p>
 
       <h2>
-        発酵食と干し野菜で、
-        毎日のごはんを
-        もっと楽しく。
+        <span>発酵食と干し野菜で、</span>
+        <span>毎日のごはんを</span>
+        <span>もっと楽しく。</span>
       </h2>
 
       <p>
@@ -112,17 +112,12 @@
         一人ひとりの「やってみたい」に寄り添う講座を開いています。
       </p>
 
-      <a class="teacher-link" routerLink="/teacher">
-        詳しく見る <span aria-hidden="true">→</span>
-      </a>
-      <a
-        class="teacher-youtube"
-        href="https://www.youtube.com/channel/UCugjeQDWQ-jNU6Oax_G7knQ"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        YouTube たべよかチャンネル <span aria-hidden="true">▶</span>
-      </a>
+      <div class="teacher-actions">
+        <a class="teacher-link" routerLink="/teacher">詳しく見る <span aria-hidden="true">→</span></a>
+        <a class="teacher-youtube" href="https://www.youtube.com/channel/UCugjeQDWQ-jNU6Oax_G7knQ" target="_blank" rel="noopener noreferrer">
+          <span class="youtube-lines"><span>YouTube</span><span>たべよかチャンネル</span></span><span aria-hidden="true">▶</span>
+        </a>
+      </div>
 
     </div>
 
@@ -164,13 +159,13 @@
 
     <div class="course-grid">
       <a class="course-card" routerLink="/courses" fragment="dried-vegetables">
-        <div class="course-photo course-photo-with-teacher">
+        <div class="course-photo">
           <img src="/images/origin.jpg" alt="ヒミツのワザあり干し野菜講座">
           
         </div>
         <div class="course-body">
           <p class="course-number">01・ONLINE</p>
-          <h3>ヒミツのワザあり<br>干し野菜講座</h3>
+          <h3><span>ヒミツの</span><span>ワザあり</span><span>干し野菜講座</span></h3>
           <span class="course-link">講座を見る <span aria-hidden="true">→</span></span>
         </div>
       </a>
