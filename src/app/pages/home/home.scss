@@ -103,7 +103,10 @@
   margin-bottom: 30px;
   font-size: 38px;
   line-height: 1.8;
+  text-align: center;
 }
+.intro h2 span { display:block; }
+.intro > div:first-child { text-align:center; }
 
 .intro p {
   font-size: 17px;
@@ -122,6 +125,7 @@
   border-radius: 18px;
   object-fit: cover;
 }
+.photo-grid img:nth-child(-n+2) { height:220px; object-position:center 46%; }
 
 .photo-grid img:last-child { grid-column: span 2; height:auto; max-height:440px; object-fit:contain; background:#f1e9dc; }
 
@@ -166,7 +170,7 @@
   display: inline-flex;
   gap: 14px;
   align-items: center;
-  padding: 16px 36px;
+  padding: 13px 24px;
   border: 1px solid #b59355;
   border-radius: 999px;
   background: white;
@@ -179,18 +183,23 @@
 
 .teacher-link:hover { background: #b59355; color: white; }
 
+.teacher-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+
 .teacher-youtube {
   display: inline-flex;
   gap: 10px;
   align-items: center;
-  margin-left: 14px;
-  padding: 15px 22px;
+  margin-left: 0;
+  padding: 12px 17px;
   border: 1px solid #b94b43;
   border-radius: 999px;
   color: #a13e38;
-  font-size: 14px;
+  font-size: 13px;
   text-decoration: none;
+  text-align:center;
 }
+.youtube-lines,.youtube-lines span { display:block; }
+.youtube-lines { line-height:1.35; }
 
 .book-preview {
   display: grid;
@@ -244,13 +253,11 @@
   justify-content: center;
   height: clamp(300px, 38vw, 510px);
   margin: 0;
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: none;
 }
 
-.book-covers figure:first-child { transform: translateY(-14px) rotate(-1.5deg); }
-.book-covers figure:last-child { transform: translateY(10px) rotate(1.5deg); }
-.book-covers:hover figure:first-child { transform: translateY(-20px) rotate(-2deg); }
-.book-covers:hover figure:last-child { transform: translateY(4px) rotate(2deg); }
+.book-covers figure:first-child { z-index:2; transform:translateX(7%) rotate(-1deg); }
+.book-covers figure:last-child { z-index:1; transform:translateX(-7%) rotate(1deg); }
 
 .book-covers img {
   display: block;
@@ -360,6 +367,7 @@
   font-weight: 500;
   letter-spacing: 0.05em;
 }
+.course-body h3 span { display:inline; }
 
 .course-subtypes {
   display: flex;
@@ -395,8 +403,10 @@
 .instagram-heading a { color: #8f713d; text-decoration: none; }
 .instagram-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 1180px; margin: 0 auto; }
 .instagram-post { position: relative; display: block; aspect-ratio: 4/5; overflow: hidden; background: linear-gradient(135deg,#eee3d0,#f8f2e8); color: #9c8256; text-decoration: none; }
-.instagram-post img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; transition: opacity .2s; }
+.instagram-post img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; background:#f3ede3; transition: opacity .2s; }
 .instagram-post span { position: absolute; inset: 0; display: grid; place-items: center; font-family: Arial,sans-serif; font-size: 11px; letter-spacing: .15em; }
+
+.intro p,.teacher-message,.book-preview-copy p,.course-heading p,.course-body h3 { text-wrap:pretty; overflow-wrap:break-word; word-break:normal; }
 
 .home-footer-nav { display:grid; grid-template-columns:auto 1fr auto; gap:clamp(26px,5vw,70px); align-items:center; padding:58px 6%; border-top:1px solid #e7ddcc; background:#f5eee2; }
 .home-footer-brand { white-space:nowrap; font-size:25px; font-weight:600; letter-spacing:.14em; }
@@ -423,6 +433,8 @@
   .hero-combination i { margin:0; line-height:1.2; }
   .hero-school { margin-top:.42em; }
   .intro { grid-template-columns: 1fr; gap: 48px; padding: 88px 7%; }
+  .intro > div:first-child { max-width:680px; margin-inline:auto; }
+  .intro h2 { font-size:clamp(29px,5vw,38px); line-height:1.65; }
   .teacher { grid-template-columns: minmax(92px, 120px) minmax(0, 1fr); gap: 22px; padding: 88px 7%; text-align: left; }
   .teacher-photo { width: 100%; margin: 0; }
   .teacher h2 { font-size: clamp(28px, 8vw, 38px); }
@@ -436,11 +448,25 @@
   .book-covers figure { height:clamp(210px,58vw,360px); }
   .course-preview { padding: 88px 7%; }
   .course-grid { grid-template-columns: 1fr; max-width: 560px; }
+  .course-body { text-align:center; }
+  .course-body h3 span { display:block; }
+  .course-body h3 { line-height:1.45; }
   .course-photo { height: auto; }
   .instagram-preview { padding: 84px 7%; }
   .instagram-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
   .home-footer-nav { grid-template-columns:1fr; justify-items:center; gap:28px; padding:48px 7%; text-align:center; }
   .home-footer-nav nav { max-width:520px; }
+}
+
+@media (max-width: 760px) {
+  .course-grid { gap:14px; }
+  .course-card { display:grid; grid-template-columns:42% minmax(0,1fr); align-items:stretch; }
+  .course-photo { min-height:170px; height:100%; aspect-ratio:auto; }
+  .course-body { display:flex; flex-direction:column; justify-content:center; min-height:0; padding:18px 14px; }
+  .course-number { font-size:10px; }
+  .course-body h3 { margin-bottom:12px; font-size:clamp(16px,4.5vw,21px); }
+  .course-link { justify-content:center; font-size:11px; }
+  .course-heading > p:last-child { max-width:30em; margin-inline:auto; font-size:14px; line-height:1.8; }
 }
 
 @media (max-width: 480px) {
